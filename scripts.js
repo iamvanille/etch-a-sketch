@@ -45,6 +45,7 @@ newButton.addEventListener('click', () => {
 const backButton = document.querySelector('#original-btn')
 backButton.addEventListener('click', () => {
   container.innerHTML = '';
-  makeRows(10, 20);
-  
+  rows = 10;
+  cols = 20;
+  makeRows(rows, cols);
 });
