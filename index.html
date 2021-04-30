@@ -8,30 +8,52 @@
         <link href="styles.css" rel="stylesheet" />
     </head>
     <body>
-        <div id="container">
-
-        </div>
+      <button id="clear-btn">Restart</button>
+      <button id="reset-btn">Make a new grid</button>
+        
+      <div id="container"></div>
+        
     </body>
 
     <script>
-        const container = document.getElementById("container");
+      const container = document.getElementById("container");
 
-            function makeRows(rows, cols) {
-              container.style.setProperty('--grid-rows', rows);
-              container.style.setProperty('--grid-cols', cols);
-              for (c = 0; c < (rows * cols); c++) {
-                let cell = document.createElement("div");
-                container.appendChild(cell).className = "grid-item";
-                // on hover:
-                cell.addEventListener("mouseover", function(event) {
-                  
-                  cell.classList.add("dark")});
-              };
-              
-            };
+      function makeRows(rows, cols) {
+        container.style.setProperty('--grid-rows', rows);
+        container.style.setProperty('--grid-cols', cols);
+        
+        for (c = 0; c < (rows * cols); c++) {
+          let cell = document.createElement("div");
+          container.appendChild(cell).className = "grid-item";
+
+          cell.addEventListener("mouseover", function(event) {
+            cell.classList.add("dark")
+          });
+        }; 
+      };
+
+      let rows = 16;
+      let cols = 16;
+      
+      makeRows(16, 16);
+
+      const clearButton = document.querySelector("#clear-btn")
+      clearButton.addEventListener("click", () => {
+        container.innerHTML = "";
+        makeRows(rows, cols);
+      });
+
+      const resetButton = document.querySelector("#reset-btn")
+      resetButton.addEventListener("click", () => {
+        container.innerHTML = "";
+
+        rows = prompt("How many cells high?");
+        cols = prompt("How many cells long?");
+
+        makeRows(rows, cols);
+      });
+
             
-            makeRows(16, 16);
-            
-            </script>
+     </script>
 
 </html>
