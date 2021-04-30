@@ -9,11 +9,13 @@
     </head>
     <body>
       <div id="container">
-        <h1 class="header">Etch-A-Sketch</h1>
-      <div class="button-container">
-        <button class="btn" id="clear-btn">Restart</button>
-        <button class="btn" id="reset-btn">Make a new grid</button>
-      </div>
+        <h1 id="header">Etch-A-Sketch!</h1>
+        
+        <div class="sidenav">
+          <h1 id="side-header">Controls</h1>
+          <button class="btn" id="clear-btn">Reset</button>
+          <button class="btn" id="new-btn">Custom Grid</button>
+        </div>
 
       <div id="etch-a-sketch"></div>
     </div>
@@ -44,7 +46,7 @@
       let rows = 16;
       let cols = 16;
       
-      makeRows(16, 16);
+      makeRows(10, 20);
 
       const clearButton = document.querySelector('#clear-btn')
       clearButton.addEventListener('click', () => {
@@ -52,18 +54,14 @@
         makeRows(rows, cols);
       });
 
-      const resetButton = document.querySelector('#reset-btn')
-      resetButton.addEventListener('click', () => {
+      const newButton = document.querySelector('#new-btn')
+      newButton.addEventListener('click', () => {
         container.innerHTML = '';
 
-        rows = prompt("How many cells high?");
-          if (rows > 100) {
-           rows = prompt("Limit is 100, try again. How many cells high?");}
-
-        cols = prompt("How many cells long?");
-         if (cols > 100) {
-          cols = prompt("Limit is 100, try again. How many cells long?");}
-        
+        rows = prompt("How many cells high should the canvas be?");
+          if (rows > 50) {
+           rows = prompt("Sorry, the limit is 50. How many cells high should the canvas be?");}
+        cols = Math.round(rows * 2);
         makeRows(rows, cols);
         
       });

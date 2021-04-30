@@ -2,49 +2,77 @@
     --grid-cols: 1;
     --grid-rows: 1;
   }
+body {
+  background-color: #82a7ee42;
+}
   #container {
+    position:relative;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:rgb(255, 166, 0);
+    text-shadow: 2px 2px yellow;
+    padding-left: 260px;
+  }
+  #header {
+    text-align: center;
+    vertical-align: center;
+    border-radius: 50%;
+    background-color: #fdfff0;
+    margin-left: 38%;
+    margin-right: 38%;
+  }
+  #side-header {
+    text-align: center;
+    vertical-align: center;
+    background-color: #fdfff0;
+    border:solid 4px rgb(243, 186, 0);
+    margin-left: 20%;
+    margin-right: 20%;
   }
   #etch-a-sketch {
     margin: 0 auto;
-    width:800px;
-    height:800px;
+    margin-bottom:2rem;
+    width:1000px;
+    height:500px;
     display:grid;
-    border:solid 1px rgb(34, 42, 78);
+    border:solid 1rem rgb(140, 151, 201);
     grid-template-rows: repeat(var(--grid-rows), 1fr);
     grid-template-columns: repeat(var(--grid-cols), 1fr);
+    background-color: white;
   }
-  .header {
 
-  }
   .grid-item {
-    padding: 0em;
-    text-align: center;
     background-color: cornflowerblue;
   }
 
-  .btn {
-    width: 100%;
-    height: 3rem;
-    box-shadow: 0 0 0 1px silver;
-    background-color: #0080807a;
-    font-family: 'Calibri';
+  .sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 260px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    padding-top: 5rem;
+    background-color: rgb(30, 63, 102); 
+    overflow-x: hidden; /* Disable horizontal scroll */
   }
   
-  .button-container {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .button-container > button {
-    flex: 50%;
-    /* - or - flex-basis: 50% -  */
-    /*demo*/
-    box-shadow: 0 0 0 1px silver;
-    margin-bottom: 10px;
+  .sidenav > button {
+    width: 8rem;
+    height: 8rem;
+    border-radius:50%;
+    margin-left: 4rem;
+    margin-top: 2rem;
+    box-shadow: 0 0 0 1px rgb(243, 186, 0);
     background-color: skyblue;
+    font-weight: bold;
+    font-size:1rem;
   }
-
 
   .btn:hover{
-    background-color: #00808060;
+    background-color:#85ebd861;
   }
+  
+  
+
+
+ 
