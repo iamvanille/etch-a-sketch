@@ -14,7 +14,8 @@
         <div class="sidenav">
           <h1 id="side-header">Controls</h1>
           <button class="btn" id="clear-btn">Reset</button>
-          <button class="btn" id="new-btn">Custom Grid</button>
+          <button class="btn" id="new-btn">Set custom canvas</button>
+          <button class="btn" id="original-btn">Back to original canvas</button>
         </div>
 
       <div id="etch-a-sketch"></div>
@@ -43,10 +44,10 @@
         }; 
       };
 
-      let rows = 16;
-      let cols = 16;
+      let rows = 10;
+      let cols = 20;
       
-      makeRows(10, 20);
+      makeRows(rows, cols);
 
       const clearButton = document.querySelector('#clear-btn')
       clearButton.addEventListener('click', () => {
@@ -63,6 +64,13 @@
            rows = prompt("Sorry, the limit is 50. How many cells high should the canvas be?");}
         cols = Math.round(rows * 2);
         makeRows(rows, cols);
+        
+      });
+
+      const backButton = document.querySelector('#original-btn')
+      backButton.addEventListener('click', () => {
+        container.innerHTML = '';
+        makeRows(10, 20);
         
       });
 
